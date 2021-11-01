@@ -56,19 +56,30 @@ body{
 }
 
 .project {
-	width: 20vh;
+	width: 200px;
 	height: 5vh;
-	margin-left: 30vh;
 	background-color: black;
 	color: #dadada;
 	border-radius: 20px;
 	transition: 0.5s;
 	cursor: pointer;
+	position: absolute;
+	margin-left: 20vh;
 }
 
 .project:hover {
 	background-color: #1b1b1b;
 	transform: scale(1.5);
+}
+
+.project:first-child {
+    margin-top: 5vh;
+}
+.project:nth-of-type(2) {
+    margin-top: 12vh;
+}
+.project:nth-of-type(3) {
+    margin-top: 19vh;
 }
 
 .meme {
