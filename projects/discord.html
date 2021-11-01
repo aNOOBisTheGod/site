@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>aNOOBus</title>
+	<link rel="icon" type="image" href="../styles/images/bot_av.png">
+	<link rel="stylesheet" type="text/css" href="projectstyle.css">
+</head>
+<body>
+	<header class=header>
+		<img src="../styles/images/bot_av.png" class=main-image>
+		<div class="name">aNOOBus</div>
+	</header>
+	<section class="section">
+		<div class='fade-in title'>General info</div>
+		<div class="fade-in simple-text">
+			It's quite simple discord bot with a lot of new features like slash-commands and discord components<br>
+			aNOOBus is hosted on Heroku so there aren't any issues with connections.
+			 There can be issues with databses cause I use free cloud database with 100MB limit so it can just disappear in any time)<br>
+		</div>
+		<div class='fade-in title'>Bot itself</div>
+		<div class="fade-in simple-text">
+			There are a lot of features in the bot(not), it has 4 categories in it:
+			<li>Moderation(no explanation needed)</li>
+			<li>Fun(Commands like punch, kill, hug)</li>
+			<li>Slash-commands(In that category there are all commands that r comfortable to use like slahs-commands)</li>
+			<li>Filters(Command that can upgrade image)</li>
+		</div>
+		<div class='fade-in title'>Now about commands</div>
+		<div class="fade-in simple-text">
+			Here I will make an examples with the best commands from each category, u can view all of them by typing
+			"!!help"(u need to send message) or "/"(and just view bot slash-commands), so here we go:<br>
+			<div class="commands discord">
+			<div class="command-title">Moderation:</div>
+			!!createjoins {category name} - creates voice channel that will create private voice channels(like voicemaster), but 
+			aNOOBus will give channel owner permissions to manage channel as he want, voicemaster doesn't have that feature
+			<div class="dividor"></div>
+			!!setlogs {channel name} - will set server logs to mentioned channel
+			<div class="dividor"></div>
+			</div>
+			<div class="commands discord">
+			<div class="command-title">Fun:</div>
+			!!action {mention} - bot will send list of actions that u can do with member(like hug, kiss, etc)
+			<div class="dividor"></div>
+		</div>
+		<div class="commands discord">
+				<div class="command-title">/Slahs-Commands</div>
+			/gradient {rgb code of color 1} {rgb code of color 2} opttional:{rgb code of color 3} - 
+			will generate gradient from given colors
+				<div class="dividor"></div>
+			/chemist {1st element} {2nd element} - will solve chemistry equation(sum of 2 elements)
+				<div class="dividor"></div>
+		</div>
+		<div class="commands discord">
+			<div class="command-title">Filters:</div>
+			!!filter {image} - bot will ask what to do with image and implement chosen filter on image
+			<div class="dividor"></div>
+		</div>
+		</div>
+	</section>
+	<footer class = 'footer'>
+		<button class="project discord" onclick="window.location.href = 'https://discord.com/oauth2/authorize?client_id=869569078153576499&permissions=8&scope=bot%20applications.commands';">Add bot to your server</button>
+		<button class="project discord"  onclick="window.location.href = 'https://top.gg/bot/869569078153576499/vote';">Vote for bot🦄</button>
+		<button class="project discord"  onclick="window.location.href = 'https://github.com/aNOOBisTheGod/upgraded-discord-bot';">Github repo</button>
+	</footer>
+<script src="../script.js"></script>
+</body>
+</html>
