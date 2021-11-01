@@ -78,7 +78,6 @@ body{
 	height: 30vh;
 	width: 100%;
 	background-image: url(./images/bg.jpg);
-	align-items: center;
 }
 
 .card{
@@ -104,7 +103,6 @@ body{
 
 .discord:hover{
 	box-shadow: 4px 4px 5px rgba(114, 137, 218, .4);
-
 }
 
 .flutter{
@@ -136,4 +134,7 @@ body{
 	font-weight: bold;
 	font-style: italic;
 	font-size: 20px;
+	position: absolute;
+	margin-top: 15vh;
+	margin-left: 20vh;
 }
