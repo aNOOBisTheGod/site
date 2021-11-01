@@ -85,7 +85,6 @@ body{
 .meme {
 	width: 1vw;
 	transition: all 0.5s;
-	border-radius: 30px;
 	opacity: 0.1;
 	margin-left: 10vw;
 }
