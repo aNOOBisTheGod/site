@@ -1,0 +1,27 @@
+@import "../projects/projectstyle.css";
+
+.definition{
+	color: pink;
+	font-size: 50px;
+}
+
+.title {
+	font-size: 40px;
+}
+
+.presentation-image{
+	border-radius: 30px;
+}
+
+.presentation-image{
+	transition: 0.5s;
+	margin-right: 20vw;
+}
+
+.presentation-image:hover {
+	box-shadow: 10px 10px 10px rgba(233,170,133, .4)
+}
+
+.simple-text {
+	font-size: 30px;
+}
