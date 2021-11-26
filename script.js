@@ -1,3 +1,6 @@
+console.log(100);
+
+
 const faders = document.querySelectorAll(".fade-in");
 
 const appearOptions = {
