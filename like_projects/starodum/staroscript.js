@@ -1,4 +1,7 @@
 var a = "";
+var removed = false;
+
+
 
 function clicker(x){
 	a += x;
@@ -36,3 +39,17 @@ appearOptions);
 faders.forEach(fader => {
   appearOnScroll.observe(fader);
 });
+
+function remove() {
+	if (!removed) {
+   		for(styleSheet of document.styleSheets){ styleSheet.disabled=true;}
+   		removed = true;
+   }
+	else {
+		for(styleSheet of document.styleSheets){ styleSheet.disabled=false; }
+		removed = false;
+	}
+}
+remove();
+
+

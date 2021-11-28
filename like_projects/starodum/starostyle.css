@@ -81,10 +81,7 @@ header{
 	transition: .5s;
 }
 
-.plan:hover {
-	-webkit-filter: invert(1);
-  filter: invert(1);
-}
+
 
 .shifr:hover {
 	cursor: pointer;
@@ -116,4 +113,26 @@ header{
 
 .appear {
 	opacity: 1;
+}
+
+.remove {
+	opacity: 1;
+	width: 200px;
+	height: 60px;
+	background-color: black;
+	color: white;
+	margin-left: 40vw;
+	transition: .3s;
+	border-radius: 10px;
+	position: absolute;
+	border: 2px solid white;
+	font-size: 15px;
+	padding: 10px;
+	cursor: pointer;
+}
+
+.remove:hover {
+	transform: scale(1.1);
+	-webkit-filter: invert(100%);
+  filter: invert(100%);
 }
