@@ -1,6 +1,50 @@
 var a = "";
 var removed = false;
 
+function changeBackground(color) {
+   document.body.style.background = color;
+}
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+var r = 174;
+var g = 162;
+var b = 173;
+
+window.addEventListener("scroll",function() { 
+	changeBackground('rgba(' + r + ', ' + g + ', ' + b + ')'); 
+	var x = getRandomInt(3);
+	var y = getRandomInt(3);
+	var z = getRandomInt(3);
+	var oper1 = getRandomInt(1);
+	var oper2 = getRandomInt(1);
+	var oper3 = getRandomInt(1);
+	if (r + g + b < 400) {
+		oper1 = 1;
+		oper2 = 1;
+		oper3 =1;
+	}
+	if ((oper1 == 0 || r >= 255) & r >= 100){
+		r -= x;
+	} else {
+		r += x
+	}
+	if ((oper2 == 0 || g >= 255) & g >= 100){
+		g -= y;
+	} else {
+		g += y;
+	}
+	if ((oper3 == 0 || b >= 255) & b >= 100){
+		b -= z;
+	} else {
+		b += z;
+	}
+	console.log(r, g, b)
+}
+);
+
+
 
 
 function clicker(x){
@@ -50,6 +94,6 @@ function remove() {
 		removed = false;
 	}
 }
-remove();
+
 
 

@@ -2,6 +2,10 @@
     font-family: 'RLLYOldFont';
     src: url('./old.ttf');
 }
+@font-face {
+    font-family: 'Cytata';
+    src: url('./cytata.ttf');
+}
 
 * {
 	font-family: RLLYOldFont;
@@ -79,6 +83,7 @@ header{
 	box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.4);
 	border-radius: 30px;
 	transition: .5s;
+	margin-bottom: 20px;
 }
 
 
@@ -104,6 +109,7 @@ header{
 
 .teachers {
 	margin-bottom: 20px;
+	margin-top: 10px;
 }
 
 .fade-in {
@@ -135,4 +141,29 @@ header{
 	transform: scale(1.1);
 	-webkit-filter: invert(100%);
   filter: invert(100%);
+}
+
+.emblema {
+	position: absolute;
+	border-radius: 50%;
+	width: 200px;
+	margin-left: 100px;
+	margin-top: -50px;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+.rules {
+	cursor: pointer;
+}
+
+.cytata {
+	font-style: Cytata;
+}
+
+.plan:nth-of-type(3) {
+	margin-left: 20vw;
+}
+
+.plan:nth-of-type(4) {
+	margin-left: 40vw;
 }
