@@ -14,16 +14,16 @@ var b = 173;
 
 window.addEventListener("scroll",function() { 
 	changeBackground('rgba(' + r + ', ' + g + ', ' + b + ')'); 
-	var x = getRandomInt(3);
-	var y = getRandomInt(3);
-	var z = getRandomInt(3);
+	var x = getRandomInt(2);
+	var y = getRandomInt(2);
+	var z = getRandomInt(2);
 	var oper1 = getRandomInt(1);
 	var oper2 = getRandomInt(1);
 	var oper3 = getRandomInt(1);
 	if (r + g + b < 400) {
 		oper1 = 1;
 		oper2 = 1;
-		oper3 =1;
+		oper3 = 1;
 	}
 	if ((oper1 == 0 || r >= 255) & r >= 100){
 		r -= x;
@@ -43,8 +43,6 @@ window.addEventListener("scroll",function() {
 	console.log(r, g, b)
 }
 );
-
-
 
 
 function clicker(x){
