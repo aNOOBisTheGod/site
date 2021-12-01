@@ -11,6 +11,7 @@ function getRandomInt(max) {
 var r = 174;
 var g = 162;
 var b = 173;
+var lastScrollTop = 0;
 
 window.addEventListener("scroll",function() { 
 	changeBackground('rgba(' + r + ', ' + g + ', ' + b + ')'); 
@@ -40,7 +41,6 @@ window.addEventListener("scroll",function() {
 	} else {
 		b += z;
 	}
-	console.log(r, g, b)
 }
 );
 
@@ -68,7 +68,6 @@ const appearOnScroll = new IntersectionObserver(function(
   appearOnScroll
 ) {
   entries.forEach(entry => {
-  	console.log(100);
     if (!entry.isIntersecting) {
     	return
     } else {
@@ -96,7 +95,8 @@ function remove() {
 const canvas = document.getElementById("canvas1");
 const ctx = canvas.getContext('2d');
 ctx.canvas.width = window.innerWidth;
-ctx.canvas.height = window.innerHeight * 5.06;
+ctx.canvas.height = window.innerHeight * 5.2;
+
 
 let particlesArray;
 
@@ -109,22 +109,22 @@ let mouse = {
 // window.addEventListener('mousemove',
 // 	function(event){
 // 		mouse.x = event.x;
-// 		mouse.y = event.y * 5.06;
+// 		mouse.y = event.y * 5.20;
 // 	}
 // )
 
-// window.addEventListener('click',
-// 	function(event){
-// 		x = event.x;
-// 		y = event.y * 5.06;
-// 		let directionX = Math.random() * 5 - 2.5;
-// 		let directionY = Math.random() * 5 - 2.5;
-// 		let color = '#8C5523'
-// 		let size = Math.random() * 5 + 1;
-// 		particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
-// 		particlesArray.splice(0, 1);
-// 	}
-// )
+window.addEventListener('click',
+	function(event){
+		x = event.x;
+		y = event.pageY - window.innerHeight;
+		let directionX = Math.random() * 5 - 2.5;
+		let directionY = Math.random() * 5 - 2.5;
+		let color = '#8C5523'
+		let size = Math.random() * 5 + 1;
+		particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+		particlesArray.splice(0, 1);
+	}
+)
 
 class Particle {
 	constructor(x, y, directionX, directionY, size, color){
@@ -149,23 +149,23 @@ class Particle {
 		if (this.y > canvas.height || this.y < 0){
 			this.directionY = -this.directionY;
 		}
-		let dx = mouse.x - this.x;
-		let dy = mouse.y - this.y;
-		let distance = Math.sqrt(dx * dx + dy * dy);
-				if (distance < mouse.radius + this.size){
-			if (mouse.x < this.x && this.x < canvas.width - this.size * 10){
-				this.x += 10;
-			}
-			if (mouse.x > this.x && this.x > this.size * 10){
-				this.x -= 10;
-			}
-			if (mouse.y < this.y && this.y < canvas.height - this.size * 10){
-				this.y += 10;
-			}
-			if (mouse.y > this.y && this.y > this.size * 10){
-				this.y -= 10;
-			}
-		}
+		// let dx = mouse.x - this.x;
+		// let dy = mouse.y - this.y;
+		// let distance = Math.sqrt(dx * dx + dy * dy);
+		// 		if (distance < mouse.radius + this.size){
+		// 	if (mouse.x < this.x && this.x < canvas.width - this.size * 10){
+		// 		this.x += 10;
+		// 	}
+		// 	if (mouse.x > this.x && this.x > this.size * 10){
+		// 		this.x -= 10;
+		// 	}
+		// 	if (mouse.y < this.y && this.y < canvas.height - this.size * 10){
+		// 		this.y += 10;
+		// 	}
+		// 	if (mouse.y > this.y && this.y > this.size * 10){
+		// 		this.y -= 10;
+		// 	}
+		// }
 
 	this.x += this.directionX;
 	this.y += this.directionY;
@@ -175,11 +175,11 @@ class Particle {
 
 function init(){
 	particlesArray = [];
-	let numberOfParticles = (canvas.height * canvas.width) / 9000 / 5.06;
+	let numberOfParticles = (canvas.height * canvas.width) / 9000 / 5.20;
 	for (let i = 0; i < numberOfParticles; i++){
 		let size = Math.random() * 5 + 1;
 		let x = Math.random() * innerWidth - size * 2 - size * 2;
-		let y = Math.random() * innerHeight * 5.06 - size * 2 - size * 2;
+		let y = Math.random() * innerHeight * 5.20 - size * 2 - size * 2;
 		let directionX = Math.random() * 5 - 2.5;
 		let directionY = Math.random() * 5 - 2.5;
 		let color = '#8C5523'
@@ -189,7 +189,7 @@ function init(){
 
 function animate(){
 	requestAnimationFrame(animate);
-	ctx.clearRect(0, 0, innerWidth, innerHeight * 5.06);
+	ctx.clearRect(0, 0, innerWidth, innerHeight * 5.20);
 	for (let i = 0; i < particlesArray.length; i++){
 		particlesArray[i].update();
 	}
@@ -216,17 +216,17 @@ function connect() {
 window.addEventListener('resize', 
 	function(){
 		canvas.width = innerWidth;
-		canvas.height= innerHeight * 5.06;
+		canvas.height= innerHeight * 5.20;
 		mouse.radius = (canvas.height / 80) * (canvas.width / 80);
 	}
 )
 
-window.addEventListener('mouseout',
-	function() {
-		mouse.x = undefined;
-		mouse.y = undefined;
-	}
-)
+// window.addEventListener('mouseout',
+// 	function() {
+// 		mouse.x = undefined;
+// 		mouse.y = undefined;
+// 	}
+// )
 
 init();
 animate();
