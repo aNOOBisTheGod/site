@@ -120,7 +120,7 @@ window.addEventListener('click',
 		let directionX = Math.random() * 5 - 2.5;
 		let directionY = Math.random() * 5 - 2.5;
 		let color = '#8C5523'
-		let size = Math.random() * 5 + 1;
+		let size = 0.01;
 		particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
 		particlesArray.splice(0, 1);
 	}
@@ -134,6 +134,7 @@ class Particle {
 		this.directionY = directionY;
 		this.size = size;
 		this.color = color;
+		this.position = Math.random() + Math.random();
 	}
 
 	draw(){
@@ -143,30 +144,23 @@ class Particle {
 		ctx.fill();
 	}
 	update(){
-		if (this.x > canvas.width || this.x < 0){
+		if (this.x > canvas.width + 200 || this.x < -200){
+			// for (let i = 0; i < particlesArray.length; i++){
+			// 	if (particlesArray[i].position == this.position){
+			// 		particlesArray.splice(i, 1);
+			// 	}
+			// } if ya wanna delete item
 			this.directionX = -this.directionX;
+
 		}
-		if (this.y > canvas.height || this.y < 0){
+		if (this.y > canvas.height + 200 || this.y < -200){
+			// for (let i = 0; i < particlesArray.length; i++){
+			// 	if (particlesArray[i].position == this.position){
+			// 		particlesArray.splice(i, 1);
+			// 	}
+			// }
 			this.directionY = -this.directionY;
 		}
-		// let dx = mouse.x - this.x;
-		// let dy = mouse.y - this.y;
-		// let distance = Math.sqrt(dx * dx + dy * dy);
-		// 		if (distance < mouse.radius + this.size){
-		// 	if (mouse.x < this.x && this.x < canvas.width - this.size * 10){
-		// 		this.x += 10;
-		// 	}
-		// 	if (mouse.x > this.x && this.x > this.size * 10){
-		// 		this.x -= 10;
-		// 	}
-		// 	if (mouse.y < this.y && this.y < canvas.height - this.size * 10){
-		// 		this.y += 10;
-		// 	}
-		// 	if (mouse.y > this.y && this.y > this.size * 10){
-		// 		this.y -= 10;
-		// 	}
-		// }
-
 	this.x += this.directionX;
 	this.y += this.directionY;
 	this.draw();
@@ -177,7 +171,7 @@ function init(){
 	particlesArray = [];
 	let numberOfParticles = (canvas.height * canvas.width) / 9000 / 5.20;
 	for (let i = 0; i < numberOfParticles; i++){
-		let size = Math.random() * 5 + 1;
+		let size = 0.01;
 		let x = Math.random() * innerWidth - size * 2 - size * 2;
 		let y = Math.random() * innerHeight * 5.20 - size * 2 - size * 2;
 		let directionX = Math.random() * 5 - 2.5;
@@ -202,8 +196,9 @@ function connect() {
 			let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x))
 			 + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
 			if (distance < (canvas.width / 7) * (canvas.height / 7)){
-				ctx.strokeStyle = 'rgba(140, 85, 31, 1)'
-				ctx.lineWidth = 1;
+				let opacity = 1 - distance / ((canvas.width / 7) * (canvas.height / 7));
+				ctx.strokeStyle = 'rgba(140, 85, 31, ' + opacity +')'
+				ctx.lineWidth = 5;
 				ctx.beginPath();
 				ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
 				ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
@@ -230,6 +225,21 @@ window.addEventListener('resize',
 
 init();
 animate();
+
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
 
 
 

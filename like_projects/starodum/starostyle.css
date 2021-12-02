@@ -195,3 +195,21 @@ header{
 	width: 20vw;
 	height: 20vw;
 }
+
+.collapsible {
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  background: none;
+  transition: 0.5s;
+
+}
+
+.content1 {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  transition: 0.5s;
+}
