@@ -10,10 +10,12 @@ body{
     height: 100vh;
     background-attachment: fixed;
     display: flex;
-    font-size: 60px;
+    font-size: 70px;
     align-items: center;
     position: relative;
-    color: orange;
+    color: white;
+    -webkit-text-stroke-width: 2px;
+	-webkit-text-stroke-color: #000;
 }
 
 .header .name .main-image {
