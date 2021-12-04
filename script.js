@@ -13,9 +13,9 @@ const appearOnScroll = new IntersectionObserver(function(
   appearOnScroll
 ) {
   entries.forEach(entry => {
-  	console.log(100);
+    console.log(100);
     if (!entry.isIntersecting) {
-    	return
+      return
     } else {
       entry.target.classList.add("appear");
     }
@@ -35,17 +35,12 @@ var particlesArray = [];
 var effectparticles = [];
 var mouseposx = 100;
 var mouseposy = 100;
-var inversion = 1;
-var stopmousesim = false;
 
 let mouse = {
   x: null,
   y: null,
   radius: (canvas.height / 80) * (canvas.width / 80)
 }
-var colorright = 'rgba(255, 0, 0, ';
-var colorleft = 'rgba(0, 0, 0, ';
-var circle = [false, false, 0]; 
 
 
 function clearParticles(a){
@@ -63,81 +58,10 @@ function clearParticles(a){
 //    init(x, y, num);
     
 //    setTimeout(() => clearParticles(num), 1000);
-//  }
+//  } beauty but not for phones
 // )
 
-window.addEventListener('click',
-  function(event){
-    if (circle[0] || stopmousesim){
-      return
-    }
-    circle[0] = true;
-    circle[1] = event;
-    circle[2] = 0;
-    tomouse(event)
-  }
-)
-
-function animate(){
-  requestAnimationFrame(animate);
-  ctx.clearRect(0, 0, innerWidth, innerHeight);
-  for (let i = 0; i < particlesArray.length; i++){
-    particlesArray[i].update();
-  }
-  if (circle[0]){
-    spawncircle();
-  }
-  connect();
-}
-
-function spawncircle(){
-  circle[2] += 100;
-  ctx.beginPath();
-  ctx.arc(circle[1].x, circle[1].y, circle[2], 0, 2 * Math.PI, false);
-  let opacity = 1 - circle[2] / 2000
-  ctx.fillStyle = circle[1].x < innerWidth / 2 ? 'rgba(255,0,0,'+ opacity + ')' : 'rgba(255,255,255,'+ opacity + ')';
-  ctx.fill();
-  if (circle[2] >= 2000){
-    circle[0] = false;
-    circle[2] = 0;
-  }
-}
-function tomouse(event){
-  stopmousesim = true;
-  let closerx = false;
-  let closery = false;
-  if (mouseposx < event.x - 175){
-    mouseposx += 40;
-    closerx = true;
-  } else if (mouseposx > event.x + 175){
-    mouseposx -= 40;
-    closerx = true;
-  } 
-  if (mouseposy < event.y - 100){
-    mouseposy += 40;
-    clsoery = true;
-  } else if (mouseposy > event.y + 100){
-    mouseposy -= 40;
-    closery = true;
-  }
-  let num = 1;
-  init(mouseposx, mouseposy, num);
-  setTimeout(() => clearParticles(num), 1000);
-  if (!closerx && !closery){
-    stopmousesim = false;
-    mousesim();
-    return
-  } else{
-    setTimeout(() => tomouse(event), 10);
-  }
-}
-
 function mousesim(){
-  if (stopmousesim){
-    return
-  }
-
-  requestAnimationFrame(mousesim);
   if ((Math.random() < 0.5 && mouseposy - Math.random() * 100 > 0) || mouseposy + Math.random() * 100 > innerHeight){
     mouseposy -= Math.random() * 100;
   } else {
@@ -149,8 +73,9 @@ function mousesim(){
     mouseposx += Math.random() * 100;
   }
   let num = 2;
+
   init(mouseposx, mouseposy, num);
-  // setTimeout(() => mousesim(), 10);
+  setTimeout(() => mousesim(), 10);
   setTimeout(() => clearParticles(num), 1000);
 }
 
@@ -210,6 +135,15 @@ function init(mousex, mousey, amount){
     let color = '#8C5523'
     particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
   }
+}
+
+function animate(){
+  requestAnimationFrame(animate);
+  ctx.clearRect(0, 0, innerWidth, innerHeight);
+  for (let i = 0; i < particlesArray.length; i++){
+    particlesArray[i].update();
+  }
+  connect();
 }
 
 function connect() {
