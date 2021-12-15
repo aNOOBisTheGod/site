@@ -69,8 +69,8 @@ var bgchangers = [];
 var speedmultiplier = 20
 var bgs = [];
 var bgcol = true;
-var red = 0;
-var green = 255;
+var red = 255;
+var green = 0;
 var blue = 255;
 var themecolor = "rgba(" + red + ", " + green + ", " + blue + ", ";
 var mouse = {
@@ -133,22 +133,22 @@ function beauty(){
 }
 
 
-// function changebg(){
-//  bgcol = bgcol ? false : true
-//  if (!bgcol){
-//    red = 255;
-//    green = 0;
-//    blue = 255;
-//  }
-//  if (bgcol){
-//    red = 0;
-//    green = 255;
-//    blue = 255;
-//  }
-//  bgs.push(new Backgroundeditor(innerWidth * Math.random(), innerHeight * Math.random(), bgcol ? '#000' : '#FFF'))
-//  setTimeout(() => changebg(), Math.random() * 10000)
-// }
-// setTimeout(() => changebg(), Math.random() * 10000)
+function changebg(){
+ bgcol = bgcol ? false : true
+ if (!bgcol){
+   red = 255;
+   green = 0;
+   blue = 255;
+ }
+ if (bgcol){
+   red = 0;
+   green = 255;
+   blue = 255;
+ }
+ bgs.push(new Backgroundeditor(innerWidth * Math.random(), innerHeight * Math.random(), bgcol ? '#000' : '#FFF'))
+ setTimeout(() => changebg(), Math.random() * 10000)
+}
+setTimeout(() => changebg(), Math.random() * 10000)
 
 
 class Circle{
