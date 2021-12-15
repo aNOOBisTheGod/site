@@ -45,7 +45,6 @@ const appearOnScroll = new IntersectionObserver(function(
   appearOnScroll
 ) {
   entries.forEach(entry => {
-  	console.log(100);
     if (!entry.isIntersecting) {
     	return
     } else {
@@ -247,7 +246,7 @@ function animate(){
   ctx.clearRect(0, 0, innerWidth, innerHeight);
   for (let i = 0; i < bgs.length; i++){
     bgs[i].update();
-    if (!bgs[i].live && bgs.length > 20){
+    if (!bgs[i].live && bgs.length > 5){
       bgs.splice(i, 1);
     }
   }
