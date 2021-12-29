@@ -1,4 +1,3 @@
-
 var can = document.createElement('canvas');
 var themeeditors = []
 can.id = "CursorLayer";
