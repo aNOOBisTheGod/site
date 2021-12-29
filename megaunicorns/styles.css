@@ -1,12 +1,16 @@
 header {
     font-size: 40px;
-
     width: 100%;
 }
 body, html{
     margin:0;
     padding:0;
     font-family: Arial;
+    overflow-x: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .unselectable {
@@ -82,11 +86,6 @@ body, html{
     cursor: pointer;
 }
 
-.section{
-    box-shadow: none;
-    background-color: white;
-    height: 200vh;
-}
 
 .fade-in {
     margin-left: -400px;
@@ -129,4 +128,147 @@ body, html{
     height:100%;
     z-index:-1;
     background: white;
+}
+
+section {
+    font-family: Josefin Sans;
+    color: white;
+    background: #202731;
+    position: relative;
+    align-items: center;
+    min-height: 400px;
+    padding: 100px 20vw;
+}
+
+.pink {
+    background-color: #dfa4ec;
+}
+
+
+.red {
+    background-color: #e86f9d;
+    fill: #e86f9d;
+}
+
+.green {
+    background-color: rgb(72, 209, 204);
+    fill: rgb(72, 209, 204);
+}
+
+.orange {
+    background-color: rgb(247, 161, 2);
+    fill: rgb(247, 161, 2);
+}
+
+.black {
+    background-color: #202731;
+    fill: #202731;
+}
+
+.darkpink {
+    background-color: rgb(255, 72, 0);
+    fill: rgb(255, 72, 0);
+}
+
+.darkred {
+    background-color: rgb(32, 31, 34);
+    fill: rgb(32, 31, 34);
+}
+
+.darkorange {
+    background-color: rgb(255, 0, 85);
+    fill: rgb(255, 0, 85);
+}
+
+.darkblack {
+    background-color: rgb(68, 59, 82);
+}
+
+.darkgreen {
+    background-color: rgb(139, 60, 81);
+}
+
+/* .wavepink {
+    fill: #dfa4ec;
+}
+
+
+.wavered {
+    fill: #e86f9d;
+}
+
+.wavegreen {
+    fill: rgb(72, 209, 204);
+}
+
+.waveorange {
+    fill: rgb(247, 161, 2);
+}
+
+.waveblack {
+    fill: #202731;
+}
+
+.darkwavepink {
+    fill: rgb(255, 72, 0);
+}
+
+.darkwavered {
+    fill: rgb(32, 31, 34);
+}
+
+.darkwaveorange {
+    fill: rgb(255, 0, 85);
+}
+
+.darkwaveblack {
+    fill: rgb(68, 59, 82);
+}
+
+.darkwavegreen {
+    fill: rgb(139, 60, 81);
+} */
+
+.wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 158px;
+}
+
+.wave {
+    animation: kaboom 5s ease infinite;
+}
+
+.wave :nth-child(2) {
+    animation: movement 5s ease infinite;
+}
+
+@keyframes kaboom {
+    0% {
+        transform: scale(1);
+      }
+    50% {
+        transform: scale(1.1);
+    }
+  }
+
+
+footer {
+    background-color: black;
+    height: 30vh;
+    font-family: Josefin Sans;
+    color: white;
+    position: relative;
+    padding-top: 20vw;
+    padding-left: 10vw;
 }
