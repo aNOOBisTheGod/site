@@ -1,9 +1,8 @@
-console.log(10)
+
 var can = document.createElement('canvas');
 var themeeditors = []
 can.id = "CursorLayer";
 can.width = window.innerWidth;
-can.height = 768;
 can.width = window.innerWidth;
 var body = document.body,
     html = document.documentElement;
@@ -17,12 +16,6 @@ var header = document.getElementsByTagName("header")[0];
 header.appendChild(can);
 
 var ctx1 = can.getContext("2d");
-ctx1.fillStyle = "rgba(255, 0, 0, 0.2)";
-ctx1.fillRect(100, 100, 200, 200);
-ctx1.fillStyle = "rgba(0, 255, 0, 0.2)";
-ctx1.fillRect(150, 150, 200, 200);
-ctx1.fillStyle = "rgba(0, 0, 255, 0.2)";
-ctx1.fillRect(200, 50, 200, 200);
 class Themededitor {
 	constructor(x, y, color){
 		this.x = x;
