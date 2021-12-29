@@ -1,3 +1,66 @@
+<<<<<<< HEAD
+=======
+// var canvas = document.getElementById('can');
+// var ctx = canvas.getContext('2d');
+// ctx.canvas.width  = window.innerWidth;
+// ctx.canvas.height = window.innerHeight;
+// ctx.font = "40px serif";
+// canvas.onclick= function(event){
+// 	var colors = ['#baefd5', '#efb9c3', '#b3edee', '#eec6b3', '#cbb9ef', '#eee7b3', '#9eecb7']
+	
+// 	var x = event.offsetX;
+// 	var y = event.offsetY;
+// 	texts = ['✦', '✦', '✦', '✦', '✦', '✦', '✦', '🦄']
+// 	ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
+// 	// ctx.fillStyle = getRandomColor();
+// 	ctx.fillText(texts[Math.floor(Math.random() * texts.length)], x, y);
+// }
+
+let lastKnownScrollPosition = 0;
+let ticking = false;
+
+document.addEventListener('scroll', function(e) {
+  lastKnownScrollPosition = window.scrollY;
+  if (lastKnownScrollPosition >= 2000){
+  	ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+});
+
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+const faders = document.querySelectorAll(".fade-in");
+
+const appearOptions = {
+  threshold: 0,
+  rootMargin: "0px 0px -250px 0px"
+};
+
+const appearOnScroll = new IntersectionObserver(function(
+  entries,
+  appearOnScroll
+) {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) {
+    	return
+    } else {
+      entry.target.classList.add("appear");
+    }
+  });
+},
+appearOptions);
+
+faders.forEach(fader => {
+  appearOnScroll.observe(fader);
+});
+window.human = false;
+>>>>>>> 0da980c400855344c83f4e6837dfb3e7e353b2e3
 
 const canvas = document.getElementById("canvas1");
 const ctx = canvas.getContext('2d');
@@ -201,6 +264,7 @@ class Backgroundeditor {
 }
 
 function animate(){
+<<<<<<< HEAD
 	requestAnimationFrame(animate);
 	beautycounter++;
 	if (beautycounter >= beautycloser){
@@ -265,6 +329,59 @@ function animate(){
 		circles.push(c);
 	}
 	
+=======
+  requestAnimationFrame(animate);
+  ctx.clearRect(0, 0, innerWidth, innerHeight);
+  for (let i = 0; i < bgs.length; i++){
+    bgs[i].update();
+    if (!bgs[i].live && bgs.length > 5){
+      bgs.splice(i, 1);
+    }
+  }
+  for (let i = 0; i < bgchangers.length; i++){
+    bgchangers[i].update();
+    if (!bgchangers[i].live){
+      bgchangers.splice(i, 1);
+    }
+  }
+  for (let i = 0; i < circles.length; i++){
+    circles[i].update();
+    if (!circles[i].live){
+      circles.splice(i, 1);
+    }
+  }
+  if (mouse['removed']){
+    if (mouse['x'] < 100){
+      mouse['x'] += 50
+    } else if (mouse['x'] > innerWidth - 100) {
+      mouse['x'] -= 50
+    }
+    else{
+      mouse['x'] += Math.random() * 100 - 50
+    }
+    if (mouse['y'] < 100){
+      mouse['y'] += 50
+    } else if (mouse['y'] > innerHeight - 100) {
+      mouse['y'] -= 50
+    }
+    else{
+      mouse['y'] += Math.random() * 100 - 50
+    }
+  }
+  for (let i = 1; i < 100; i++){
+    let directionX = Math.round(Math.random() * speedmultiplier - speedmultiplier / 2);
+    let directionY = Math.round(Math.random() * speedmultiplier - speedmultiplier / 2);
+    let size = Math.round(Math.random() * 20);
+    c = new Circle(mouse['x'], mouse['y'], directionX, directionY, size, 
+      tocol(red == 0 ? red + Math.round(Math.random() * 100) : red - Math.round(Math.random() * 100),
+       green == 0 ? green - Math.round(Math.random() * 100) : green - Math.round(Math.random() * 100), 
+       blue == 0 ? blue + Math.round(Math.random() * 100) : blue - Math.round(Math.random() * 100)
+      )
+    );
+    circles.push(c);
+  }
+  
+>>>>>>> 0da980c400855344c83f4e6837dfb3e7e353b2e3
 }
 window.addEventListener('resize', 
 	function(){
