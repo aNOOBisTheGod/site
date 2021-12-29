@@ -39,9 +39,9 @@ class Themededitor {
 		ctx1.fill();
 	}
     dodraw(){
-        console.log(this.color + this.opacity  + ')');
         this.opacity -= 0.001;
         if (this.opacity <= 0){
+            can.style.zIndex = -1
             return
         }
         ctx1.beginPath()
@@ -66,7 +66,6 @@ function remake() {
     for (var i = 0; i < sections.length; i++){
         sections[i].classList.toggle('dark' + sections[i].classList[0]);
     }
-    can.style.zIndex = -1
     cahgewaves();
 }
 function chagetheme(x, y){
