@@ -8,12 +8,12 @@ var bgchangers = [];
 var speedmultiplier = 20
 var bgs = [];
 var bgcol = false;
-var red = 0;
-var green = 255;
+var red = 255;
+var green = 0;
 var blue = 255;
 var themecolor = "rgba(" + red + ", " + green + ", " + blue + ", ";
 var beautycounter = 0;
-var beautycloser = Math.random() * 50;
+var beautycloser = Math.random() * 50;	
 var mouse = {
 	'x' : innerWidth / 2, 
 	'y' : innerHeight / 2,
@@ -45,7 +45,6 @@ window.addEventListener('click',
 	bgchangers.push(new BGChanger(event.x, event.pageY, tocol(red, green, blue), 30, innerWidth * 10))
 	}
 )
-
 function cahgewaves() {
   var waves = document.getElementsByClassName('wave');
   var sections = document.getElementsByTagName('section');
@@ -209,19 +208,24 @@ function animate(){
 		beautycounter = 0;
 	}
 	ctx.clearRect(0, 0, innerWidth, innerHeight);
-  ctx1.clearRect(0, 0, innerWidth, can.height);
+	try{
+ 	ctx1.clearRect(0, 0, innerWidth, can.height);
+	for (let i = 0; i < themeeditors.length; i++){
+	themeeditors[i].update();
+	if (!themeeditors[i].live && themeeditors[i].opacity <= 0){
+		themeeditors.splice(i, 1);
+	}
+}
+	} catch (e){
+
+	}
 	for (let i = 0; i < bgs.length; i++){
 		bgs[i].update();
 		if (!bgs[i].live && bgs.length > 20){
 			bgs.splice(i, 1);
 		}
 	}
-  for (let i = 0; i < themeeditors.length; i++){
-		themeeditors[i].update();
-		if (!themeeditors[i].live && themeeditors[i].opacity <= 0.01){
-			themeeditors.splice(i, 1);
-		}
-	}
+  
 	for (let i = 0; i < bgchangers.length; i++){
 		bgchangers[i].update();
 		if (!bgchangers[i].live){
@@ -270,12 +274,12 @@ window.addEventListener('resize',
 	function(){
 		canvas.width = innerWidth;
 		canvas.height= innerHeight;
-    can.width = window.innerWidth;
-var body = document.body,
-    html = document.documentElement;
-var height = Math.max( body.scrollHeight, body.offsetHeight, 
-                       html.clientHeight, html.scrollHeight, html.offsetHeight );
-can.height = height - innerHeight;
+			can.width = window.innerWidth;
+		var body = document.body,
+			html = document.documentElement;
+		height = Math.max( body.scrollHeight, body.offsetHeight, 
+						html.clientHeight, html.scrollHeight, html.offsetHeight );
+		can.height = height - innerHeight;
 	}
 )
 window.addEventListener('mouseout', 
@@ -291,25 +295,29 @@ function addElement() {
 }
 window.addEventListener('dblclick',
 	function(event){
-    if (themeeditors.length != 0){
-      return
-    }
-		bgcol = bgcol ? false : true
-		if (!bgcol){
-			red = 255;
-			green = 0;
-			blue = 255;
-		}
-		if (bgcol){
-			red = 0;
-			green = 255;
-			blue = 255;
-		}
-    addElement();
-    chagetheme(event.x, event.pageY - this.innerHeight)
-		bgs.push(new Backgroundeditor(event.x, event.pageY, bgcol ? '#000' : '#FFF'))
+		themechange(event.x, event.pageY)
 	}
 )
+
+function themechange(x, y){
+	if (themeeditors.length != 0){
+		return
+	  }
+		  bgcol = bgcol ? false : true
+		  if (!bgcol){
+			  red = 255;
+			  green = 0;
+			  blue = 255;
+		  }
+		  if (bgcol){
+			  red = 0;
+			  green = 255;
+			  blue = 255;
+		  }
+	  addElement();
+	  changetheme(x, y - this.innerHeight)
+		  bgs.push(new Backgroundeditor(x, y, bgcol ? '#000' : '#FFF'))
+}
 
 function tocol(r, g, b){
 	return "rgba(" + r + ", " + g + ", " + b + ", ";

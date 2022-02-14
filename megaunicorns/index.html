@@ -9,20 +9,17 @@
 </head>
 <body>
     <header>
-        <div class='star unselectable'>✦</div>
-        <div class='star unselectable'>✦</div>
-        <div class='star unselectable'>✦</div>
-        <div class='star unselectable'>✦</div>
-        <div class='star unselectable'>✦</div>
-        <div class='star unselectable'>✦</div>
-        <div class='star unselectable'>✦</div>
-        <h1 class='U unselectable'>U</h1>
+        <h1 class='U unselectable' onclick="themechange(innerWidth / 2, innerHeight / 2)">U</h1>
         <canvas id='canvas1'></canvas>
     </header>
-    
     <section class="pink">
-        <h1>Simple Text</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta id assumenda veniam unde, quos odio cumque, velit delectus dolorum deleniti placeat libero ipsam consequuntur voluptate quis, facilis repellendus numquam? Ullam.</p>
+        <form method="get" action="app-release.apk">
+            <button type="submit" class="downloader">Download Application</button>
+        </form>
+        <h1>Films application</h1>
+        <p>This application will chagne your life. You don't need to searcha films for 934573985 hours anymore.
+            Just simply open appliation on your android device and choose film really quick.
+        </p>
         <div class="curve"></div>
     </section>
     <section class="red">
@@ -33,8 +30,8 @@
                 <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
             </svg>
         </div>
-        <h1>Simple Text</h1>
-        <p>Totam placeat rerum aliquid id dolore alias hic inventore adipisci, maxime corporis quia eum nostrum deserunt asperiores quis vero at laboriosam eos labore? Eos, veniam! Perspiciatis qui similique deleniti eius?</p>
+        <h1>Popular films</h1>
+        <p>MovieAPI has many films and cartoons in the database so you will always find what to watch)</p>
     </section>
     <section class="orange">
         <div class="wave wavered">
@@ -44,8 +41,8 @@
                 <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
             </svg>
         </div>
-        <h1>Simple Text</h1>
-        <p>Quasi illum, sapiente fugit esse fugiat voluptas, laborum facilis pariatur recusandae sequi assumenda commodi alias placeat dignissimos, nobis impedit nostrum molestiae tempora eaque ipsum fuga. Fuga rerum quos nulla quibusdam!</p>
+        <h1>Good reviews</h1>
+        <p>You don't need anymore to read short reviews on weird websites and filter good reviews and bad</p>
     </section>
     <section class='black'>
         <div class="wave waveorange">
@@ -55,8 +52,8 @@
                 <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
             </svg>
         </div>
-        <h1>Simple Text</h1>
-        <p>Animi nobis quibusdam amet corporis tenetur sint quasi exercitationem totam. Sunt ipsa laboriosam consequatur magni fuga sequi possimus harum eum aut ducimus qui odit non quos animi, ratione, accusantium delectus.</p>
+        <h1>Pretty UX</h1>
+        <p>UX of the application is really beautiful and in future it will be possible to chagne app themes</p>
     </section>
     <section class="green">
         <div class="wave waveblack">
@@ -66,8 +63,8 @@
                 <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
             </svg>
         </div>
-        <h1>Simple Text</h1>
-        <p>Quo rem cum eveniet labore assumenda. Vero odit dolorem, quisquam fugit commodi corporis et non obcaecati veritatis explicabo expedita impedit neque! Consectetur eum neque iure accusamus suscipit ipsam. Aliquam, molestias.</p>
+        <h1>Development</h1>
+        <p>Now application is in development stage. That means that more there will be much more cool features and customization. Also if you are intrested in contributing in application, view <a href="https://github.com/aNOOBisTheGod/MoviesApp">this github repo</a></p>
     </section>
     <footer>
         <div class="wave wavegreen">
@@ -78,8 +75,11 @@
             </svg>
         </div>
         &copy; (c) aNOOBisTheGod 2021
+        <div class="heart" onclick="
+        console.log('Heart Pressed!🥰'); music.play();"></div>
     </footer>
-<script src="script.js"></script>
+<script src="script.js"></script>-
 <script src="changetheme.js"></script>
+<script src="other.js"></script>
 </body>
 </html>

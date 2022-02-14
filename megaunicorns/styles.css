@@ -1,6 +1,5 @@
 header {
     font-size: 40px;
-    width: 100%;
 }
 body, html{
     margin:0;
@@ -11,6 +10,11 @@ body, html{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.scoller {
+    overflow: scroll;
+    scroll-snap-type: y mandatory;
 }
 
 .unselectable {
@@ -31,7 +35,7 @@ body, html{
     
 }
 
-.star{
+/* .star{
     position: absolute;
 }
 
@@ -69,7 +73,7 @@ body, html{
     margin-left: 50vw;
     color: #baefd5;
     margin-top: 25vh;
-}
+} */
 
 .U:hover{
     color: white;
@@ -129,7 +133,6 @@ body, html{
     z-index:-1;
     background: white;
 }
-
 section {
     font-family: Josefin Sans;
     color: white;
@@ -138,6 +141,7 @@ section {
     align-items: center;
     min-height: 400px;
     padding: 100px 20vw;
+    scroll-snap-align: start;
 }
 
 .pink {
@@ -245,20 +249,25 @@ section {
     height: 158px;
 }
 
-.wave {
+.wave :nth-child(2){
     animation: kaboom 5s ease infinite;
 }
 
-.wave :nth-child(2) {
-    animation: movement 5s ease infinite;
+.wave :first-child{
+    animation: kaboom 7s ease infinite;
 }
+
+/* .wavepink :first-child{
+    animation: kaboom 1s ease infinite;
+}  */
+
 
 @keyframes kaboom {
     0% {
         transform: scale(1);
       }
     50% {
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
   }
 
@@ -271,4 +280,96 @@ footer {
     position: relative;
     padding-top: 20vw;
     padding-left: 10vw;
+}
+
+/* .themebutton{
+    transition: .5s;
+    font-size: 15px;
+    margin-left: 100px;
+    margin-top: 30px;
+    position: absolute;
+    background-image: linear-gradient(45deg, rgb(150, 150, 150) 0%, rgb(200, 200, 200) 100%);
+    border: 1px solid;
+    border-radius: 20px;
+    
+}
+
+.themebutton:hover {
+    transform: scale(1.3);
+    box-shadow: 4px 4px 5px rgba(236, 167, 225, .7);
+    background-image: linear-gradient(45deg, rgb(192, 19, 226) 0%, rgb(117, 15, 185) 100%);
+} */
+
+.heart {
+    background-color: red;
+    position: relative;
+    display: inline-block;
+    height: 30px;
+    margin: 0 10px;
+    top: 0;
+    transform: rotate(-45deg);
+    width: 30px;
+    margin-left: 30vw;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    background-color: red;
+    border-radius: 50%;
+    height: 30px;
+    position: absolute;
+    width: 30px;
+}
+
+.heart:before {
+    top: -15px;
+    left: 0;
+}
+
+.heart:after{
+    left: 15px;
+    top: 0;
+}
+
+.heart {
+    cursor: pointer;
+    animation: pulse 1s ease infinite;
+}
+
+
+
+@keyframes pulse {
+    0% {
+        transform: scale(1) rotate(-45deg);
+      }
+    25% {
+        transform: scale(1.7) rotate(-45deg);
+    }
+    50% {
+        transform: scale(2) rotate(-45deg);
+    }
+  }
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(45deg, rgb(255, 115, 0) 0%, rgb(255, 0, 0) 100%);
+    border-radius: 20px;    
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: black;
+    background-image: none;
+    border-radius: 20px;    
+}
+
+.downloader {
+    background-color: black;
+    font-size: 30px;
+    color: white;
+    border-radius: 20px;
+    padding: 10px;
 }
